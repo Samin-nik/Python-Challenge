@@ -4,10 +4,10 @@ import os
 import csv
 
 # Specify the correct file path based on the given directory structure
-desktop_path = os.path.expanduser("~/Desktop")
-module_path = os.path.join(desktop_path, "module-03-starter-code")
-pybank_path = os.path.join(module_path, "pybank")
-pybank_csv = os.path.join(pybank_path, "Resources", "budget_data.csv")
+# desktop_path = os.path.expanduser("~/Desktop")
+# module_path = os.path.join(desktop_path, "Python_Challenge")
+# pybank_path = os.path.join(module_path, "pybank")
+pybank_csv = os.path.join("Resources", "budget_data.csv")
 
 # Open and read the CSV file
 
@@ -62,3 +62,14 @@ print (f"Average Change:  {round(average_change,2)}")
 print (f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})")
 print (f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
     
+output_file = os.path.join("results.txt")
+with open(output_file, 'w') as text_file:
+    
+    text_file.write("Financial Analysis\n")
+    text_file.write("-----------------------------\n")
+    text_file.write(f"Total Months: {total_months}\n")
+    
+    text_file.write(f"Total: ${total_profit}\n")
+    text_file.write(f"Average Change:  {round(average_change,2)}\n")
+    text_file.write(f"Greatest Increase in Profits: {greatest_increase_date} (${greatest_increase})\n")
+    text_file.write(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})\n")
